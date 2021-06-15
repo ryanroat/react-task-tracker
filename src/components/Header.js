@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
+import Button from './Button'
 
 const Header = ({ greeting, name }) => {
   return (
-    <header>
+    <header className='header'>
       <h1>Task Tracker</h1>
+      <Button text='Add'/>
       <h2>{greeting} {name}</h2>
     </header>
   )
