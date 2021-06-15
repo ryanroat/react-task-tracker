@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 
-
 const Header = ({ greeting, name }) => {
   return (
     <header>
