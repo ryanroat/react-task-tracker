@@ -1,11 +1,7 @@
 import PropTypes from 'prop-types'
 
-const Button = ({ color, text }) => {
+const Button = ({ color, text, onClick }) => {
 
-  const onClick = () => {
-    console.log('click');
-  }
-  
   return (
     <button 
       onClick={onClick}
@@ -21,7 +17,8 @@ Button.defaultProps = {
 
 Button.propTypes = {
   color: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default Button
