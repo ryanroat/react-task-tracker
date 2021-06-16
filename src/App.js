@@ -28,10 +28,16 @@ const App = () => {
     ]
   )
 
+  // delete task
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
   return (
     <div className="container">
       <Header greeting='Welcome' name={name}/>
-      <Tasks tasks={tasks}/>
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask}/>) : ('No Tasks to show.')}
     </div>
   );
 }

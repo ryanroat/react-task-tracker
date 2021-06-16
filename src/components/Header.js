@@ -4,7 +4,7 @@ import Button from './Button'
 const Header = ({ greeting, name }) => {
 
   const onClick = () => {
-    console.log('returned click');
+    console.log('passed up click');
   }
 
   return (
