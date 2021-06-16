@@ -37,7 +37,7 @@ const App = () => {
   return (
     <div className="container">
       <Header greeting='Welcome' name={name}/>
-      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask}/>) : ('No Tasks to show.')}
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask}/>) : (<div className="center">No Tasks to show.</div>)}
     </div>
   );
 }
