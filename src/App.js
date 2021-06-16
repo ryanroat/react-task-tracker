@@ -4,7 +4,7 @@ import Tasks from './components/Tasks'
 
 const name = 'Ryan'
 
-function App() {
+const App = () => {
   const [tasks, setTasks] = useState(
     [
       {
