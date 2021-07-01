@@ -18,6 +18,15 @@ const App = () => {
     return data
   }
 
+  // retrieve single task from db via id
+
+  const fetchTask = async (id) => {
+    const res = await fetch(`http://localhost:5000/tasks/${id}`)
+    const data = await res.json()
+
+    return data
+  }
+
   useEffect(() => {
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks()
@@ -29,7 +38,7 @@ const App = () => {
 
   // add task
 
-  // add task to db file via json-server
+    // add task to db file via json-server
 
   const addTask = async (task) => {
     const res = await fetch('http://localhost:5000/tasks', {
@@ -59,8 +68,21 @@ const App = () => {
 
   // toggle reminder display
 
-  const toggleReminder = (id) => {
-    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task))
+  const toggleReminder = async (id) => {
+    const taskToToggle = await fetchTask(id)
+    const taskToggled = { ...taskToToggle, reminder: !taskToToggle.reminder }
+
+    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(taskToggled)
+    })
+
+    const data = await res.json()
+
+    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: data.reminder } : task))
   }
 
   return (
