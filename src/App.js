@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import { Footer } from './components/Footer'
 
 const name = 'Ryan'
 
@@ -94,6 +95,7 @@ const App = () => {
       ) : (
       <div className="center">No Tasks to show.</div>
       )}
+      <Footer />
     </div>
   );
 }
