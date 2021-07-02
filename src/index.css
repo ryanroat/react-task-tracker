@@ -124,3 +124,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.about {
+  text-align: center;
+}
